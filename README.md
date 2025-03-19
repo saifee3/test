@@ -1,4 +1,4 @@
-# 🚀 NumPy: The Ultimate Guide to Mastering Python's Scientific Computing Engine
+# 🚀 NumPy: The Ultimate Guide
 <img src="https://numpy.org/images/logo.svg" alt="Custom Icon" width="250" height="250">
 
 ![NumPy](https://img.shields.io/badge/NumPy-1.26.0-blue?logo=numpy&logoColor=white)
@@ -274,7 +274,7 @@ NumPy is more than just a Python library—it's a fundamental paradigm shift in 
 ---
 ---
 
-# 🐼 Pandas: The Ultimate Guide to Mastering Data Manipulation in Python
+# 🐼 Pandas: The Ultimate Guide
 <img src="https://pandas.pydata.org/static/img/pandas.svg" alt="Custom Icon" width="250" height="250">
 
 ![PyPI version](https://img.shields.io/pypi/v/pandas.svg)
@@ -640,11 +640,7 @@ Pandas is an essential tool for anyone working with data in Python. Its powerful
 ---
 ---
 ---
-# 📊 Matplotlib: The Ultimate Guide to Mastering Visualization in Python
-https://matplotlib.org/stable/_static/logo2_hex.png
-
-
-
+# 📊 Matplotlib: The Ultimate Guide
 <img src="https://matplotlib.org/stable/_static/logo2_hex.png" alt="Custom Icon" width="250" height="250">
 
 ![PyPI version](https://img.shields.io/pypi/v/matplotlib.svg)
@@ -953,9 +949,9 @@ Matplotlib is the cornerstone of data visualization in Python. Its versatility, 
 ---
 ---
 ---
-# 🎨 Seaborn: The Ultimate Guide to Mastering Statistical Data Visualization in Python
-
+# 🎨 Seaborn: The Ultimate Guide
 <img src="https://seaborn.pydata.org/_static/logo-large.png" alt="Custom Icon" width="500" height="250">
+
 ![PyPI version](https://img.shields.io/pypi/v/seaborn.svg)
 ![Python versions](https://img.shields.io/pypi/pyversions/seaborn.svg)
 ![License](https://img.shields.io/badge/License-BSD_3_Clause-blue.svg)
@@ -1216,7 +1212,8 @@ sns.histplot(data=tips, x="total_bill", stat="density")
 Seaborn is a powerful library that simplifies the creation of informative and attractive statistical visualizations in Python. By building on Matplotlib and integrating closely with Pandas, it provides a high-level interface for complex visualizations while maintaining flexibility for customization.
 
 
-
+---
+---
 
 ## 🙏 Credits
 
@@ -1229,6 +1226,6 @@ Seaborn is a powerful library that simplifies the creation of informative and at
 - Matplotlib Development Team - [@matplotlib](https://github.com/matplotlib/matplotlib)
 - Scientific Python Community
 - Icon credits: [Shields.io](https://shields.io), [Twemoji](https://twemoji.twitter.com)
-- - Seaborn Development Team - [@mwaskom](https://github.com/mwaskom/seaborn)
+- Seaborn Development Team - [@mwaskom](https://github.com/mwaskom/seaborn)
 - Scientific Python Community
 - Icon credits: [Shields.io](https://shields.io), [Twemoji](https://twemoji.twitter.com)
