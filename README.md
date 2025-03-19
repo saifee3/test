@@ -641,9 +641,8 @@ Pandas is an essential tool for anyone working with data in Python. Its powerful
 ---
 ---
 # 📊 Matplotlib: The Ultimate Guide to Mastering Visualization in Python
-<img src="https://pandas.pydata.org/static/img/pandas.svg" alt="Custom Icon" width="250" height="250">
+<img src="https://matplotlib.org/stable/_static/logo2_hex.png" alt="Custom Icon" width="250" height="250">
 
-![Matplotlib Logo](https://matplotlib.org/stable/_static/logo2_hex.png)
 ![PyPI version](https://img.shields.io/pypi/v/matplotlib.svg)
 ![Python versions](https://img.shields.io/pypi/pyversions/matplotlib.svg)
 ![License](https://img.shields.io/badge/License-BSD_3_Clause-blue.svg)
