@@ -641,6 +641,10 @@ Pandas is an essential tool for anyone working with data in Python. Its powerful
 ---
 ---
 # 📊 Matplotlib: The Ultimate Guide to Mastering Visualization in Python
+https://matplotlib.org/stable/_static/logo2_hex.png
+
+
+
 <img src="https://matplotlib.org/stable/_static/logo2_hex.png" alt="Custom Icon" width="250" height="250">
 
 ![PyPI version](https://img.shields.io/pypi/v/matplotlib.svg)
@@ -946,6 +950,273 @@ register_projection(CustomProjection)
 
 Matplotlib is the cornerstone of data visualization in Python. Its versatility, customization options, and integration capabilities make it an essential tool for anyone working with data. By mastering Matplotlib, you gain the ability to create insightful, publication-quality visualizations that effectively communicate complex information.
 
+---
+---
+---
+# 🎨 Seaborn: The Ultimate Guide to Mastering Statistical Data Visualization in Python
+
+<img src="https://seaborn.pydata.org/_static/logo-large.png" alt="Custom Icon" width="500" height="250">
+![PyPI version](https://img.shields.io/pypi/v/seaborn.svg)
+![Python versions](https://img.shields.io/pypi/pyversions/seaborn.svg)
+![License](https://img.shields.io/badge/License-BSD_3_Clause-blue.svg)
+![Downloads](https://img.shields.io/pypi/dm/seaborn.svg)
+
+---
+
+## 📖 Table of Contents
+1. [Theoretical Foundations](#theoretical-foundations)
+2. [Installation Guide](#installation-guide)
+3. [Core Concepts](#core-concepts)
+4. [Basic Plots](#basic-plots)
+5. [Customization](#customization)
+6. [Advanced Plots](#advanced-plots)
+7. [Integration with Other Libraries](#integration-with-other-libraries)
+8. [Performance Optimization](#performance-optimization)
+9. [Best Practices](#best-practices)
+10. [Advanced Topics](#advanced-topics)
+11. [Learning Roadmap](#learning-roadmap)
+
+---
+
+## 🧠 Theoretical Foundations
+
+### What is Seaborn?
+Seaborn is a Python data visualization library based on Matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. Seaborn integrates closely with Pandas data structures and is particularly powerful for visualizing structured data.
+
+### Key Features
+- **Statistical Graphics**: Specialized in creating informative statistical plots
+- **High-Level Interface**: Simplifies complex visualization tasks
+- **Aesthetic Customization**: Built-in themes and color palettes
+- **Integration**: Works seamlessly with Pandas and Matplotlib
+- **Advanced Statistical Plots**: Regression plots, distribution plots, and more
+
+### Why Seaborn?
+- **Simplifies Complex Visualizations**: Reduces code complexity for sophisticated plots
+- **Built-in Themes**: Provides attractive default styles
+- **Data-Centric API**: Designed to work directly with DataFrames
+- **Statistical Focus**: Built-in support for common statistical visualizations
+- **Extensible**: Can be customized with Matplotlib when needed
+
+---
+
+## 🛠️ Installation Guide
+
+```bash
+# Using pip
+pip install seaborn
+
+# To include optional statistical dependencies
+pip install seaborn[stats]
+
+# Using conda
+conda install seaborn -c conda-forge
+```
+
+---
+
+## 🧮 Core Concepts
+
+### Basic Components
+- **Figure**: The canvas where plots are drawn
+- **Axes**: Individual plots within a figure
+- **Data**: Typically provided as Pandas DataFrames
+- **Aesthetics**: Mapping of data variables to visual properties
+
+### Creating a Basic Plot
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load example dataset
+tips = sns.load_dataset("tips")
+
+# Create a basic plot
+sns.relplot(data=tips, x="total_bill", y="tip", col="time")
+plt.show()
+```
+
+---
+
+## 📊 Basic Plots
+
+### Distribution Plots
+```python
+# Histogram with kernel density estimate
+sns.histplot(data=tips, x="total_bill", kde=True)
+
+# Box plot
+sns.boxplot(data=tips, x="day", y="total_bill")
+
+# Violin plot
+sns.violinplot(data=tips, x="day", y="total_bill")
+```
+
+### Categorical Plots
+```python
+# Bar plot
+sns.barplot(data=tips, x="day", y="total_bill")
+
+# Point plot
+sns.pointplot(data=tips, x="day", y="total_bill", hue="sex")
+```
+
+### Regression Plots
+```python
+# Simple linear regression
+sns.regplot(data=tips, x="total_bill", y="tip")
+
+# Logistic regression
+sns.regplot(data=tips, x="total_bill", y="smoker", logistic=True)
+```
+
+---
+
+## ✨ Customization
+
+### Styling
+```python
+# Set style
+sns.set_style("whitegrid")
+
+# Set color palette
+sns.set_palette("viridis")
+
+# Create custom color palette
+palette = sns.color_palette("coolwarm", 5)
+```
+
+### Annotations and Labels
+```python
+# Add annotations
+sns.scatterplot(data=tips, x="total_bill", y="tip")
+plt.annotate("High tip", xy=(40, 8), xytext=(20, 10),
+             arrowprops=dict(facecolor='black', shrink=0.05))
+```
+
+### Faceting
+```python
+# Create facet grid
+g = sns.FacetGrid(tips, col="time", row="smoker")
+g.map(sns.scatterplot, "total_bill", "tip")
+```
+
+---
+
+## 🚀 Advanced Plots
+
+### Matrix Plots
+```python
+# Heatmap
+flights = sns.load_dataset("flights")
+flights = flights.pivot("month", "year", "passengers")
+sns.heatmap(flights, annot=True, fmt="d")
+
+# Clustermap
+sns.clustermap(flights, annot=True, fmt="d")
+```
+
+### Multi-Panel Plots
+```python
+# Pair plot
+penguins = sns.load_dataset("penguins")
+sns.pairplot(penguins, hue="species")
+
+# Joint plot
+sns.jointplot(data=penguins, x="bill_length_mm", y="bill_depth_mm", hue="species")
+```
+
+---
+
+## 🤝 Integration with Other Libraries
+
+### With Pandas
+```python
+# Use Pandas DataFrame directly
+df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+sns.lineplot(data=df, x="A", y="B")
+```
+
+### With NumPy
+```python
+# Generate data with NumPy and plot with Seaborn
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+sns.lineplot(x=x, y=y)
+```
+
+---
+
+## ⚡ Performance Optimization
+
+1. **Vectorized Operations**: Use built-in functions that work with arrays
+2. **Data Sampling**: Work with samples of large datasets when exploring
+3. **Simplify Plots**: Reduce the number of visual elements when possible
+4. **Batch Processing**: Process and plot data in batches for very large datasets
+5. **Use Appropriate Plot Types**: Choose plot types that efficiently represent your data
+
+---
+
+## 📜 Best Practices
+
+1. **Start Simple**: Begin with basic plots and add complexity as needed
+2. **Use Appropriate Scales**: Choose the right scale for your data
+3. **Label Clearly**: Always label axes and add titles
+4. **Choose Informative Visualizations**: Select plot types that best reveal patterns in your data
+5. **Document Your Visualizations**: Comment on what each plot is intended to show
+
+---
+
+## 🧩 Advanced Topics
+
+### Custom Estimators
+```python
+# Custom estimator in line plot
+sns.lineplot(data=tips, x="total_bill", y="tip", estimator=np.median)
+```
+
+### Custom Plot Types
+```python
+# Create a custom plot using object interface
+p = sns.Plot(data=tips, x="total_bill", y="tip", color="sex")
+p.add(sns.Line())
+p.add(sns.Point())
+p.render()
+```
+
+### Statistical Transformations
+```python
+# Use statistical transformations
+sns.histplot(data=tips, x="total_bill", stat="density")
+```
+
+---
+
+## 🌟 Learning Roadmap
+
+1. **Basics**: Creating simple plots, understanding data structures
+2. **Customization**: Styling plots, adding annotations
+3. **Advanced Plots**: Heatmaps, clustermaps, pair plots
+4. **Integration**: Working with Pandas, NumPy, and Jupyter
+5. **Performance**: Optimizing visualization for large datasets
+6. **Advanced Features**: Custom estimators, statistical transformations
+
+---
+
+## 🌐 Community & Resources
+
+- [Official Documentation](https://seaborn.pydata.org/)
+- [Seaborn GitHub](https://github.com/mwaskom/seaborn)
+- [Example Gallery](https://seaborn.pydata.org/examples/index.html)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/seaborn)
+
+---
+
+## 📝 Conclusion
+
+Seaborn is a powerful library that simplifies the creation of informative and attractive statistical visualizations in Python. By building on Matplotlib and integrating closely with Pandas, it provides a high-level interface for complex visualizations while maintaining flexibility for customization.
+
+
+
 
 ## 🙏 Credits
 
@@ -956,5 +1227,8 @@ Matplotlib is the cornerstone of data visualization in Python. Its versatility, 
 - Scientific Python Community
 - Icon credits: [Shields.io](https://shields.io), [Twemoji](https://twemoji.twitter.com)
 - Matplotlib Development Team - [@matplotlib](https://github.com/matplotlib/matplotlib)
+- Scientific Python Community
+- Icon credits: [Shields.io](https://shields.io), [Twemoji](https://twemoji.twitter.com)
+- - Seaborn Development Team - [@mwaskom](https://github.com/mwaskom/seaborn)
 - Scientific Python Community
 - Icon credits: [Shields.io](https://shields.io), [Twemoji](https://twemoji.twitter.com)
