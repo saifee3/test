@@ -269,10 +269,8 @@ static PyObject *myfunc(PyObject *self, PyObject *args) {
 
 NumPy is more than just a Python library—it's a fundamental paradigm shift in how we think about data manipulation. By mastering its array operations, broadcasting rules, and memory model, you gain superpowers in numerical computing that extend far beyond Python itself. Whether you're processing satellite imagery, simulating quantum systems, or building machine learning models, NumPy provides the foundation that makes complex computations elegant and efficient.
 
-
----
----
----
+## ----- END OF NUMPY Guide -----
+## ----- BEGINNING OF PANDAS Guide -----
 
 # 🐼 Pandas: The Ultimate Guide
 <img src="https://pandas.pydata.org/static/img/pandas.svg" alt="Custom Icon" width="250" height="250">
@@ -637,9 +635,9 @@ class CustomAccessor:
 
 Pandas is an essential tool for anyone working with data in Python. Its powerful data structures and extensive functionality make it the go-to library for data manipulation and analysis. By mastering pandas, you gain the ability to efficiently process and transform data, enabling you to focus on the insights rather than the mechanics of data handling.
 
----
----
----
+## ----- END OF PANDAS Guide -----
+## ----- BEGINNING OF MATPLOTLIB Guide -----
+
 # 📊 Matplotlib: The Ultimate Guide
 <img src="https://matplotlib.org/stable/_static/logo2_hex.png" alt="Custom Icon" width="250" height="250">
 
@@ -946,9 +944,9 @@ register_projection(CustomProjection)
 
 Matplotlib is the cornerstone of data visualization in Python. Its versatility, customization options, and integration capabilities make it an essential tool for anyone working with data. By mastering Matplotlib, you gain the ability to create insightful, publication-quality visualizations that effectively communicate complex information.
 
----
----
----
+## ----- END OF MATPLOTLIB Guide -----
+## ----- BEGINNING OF SEABORN Guide -----
+
 # 🎨 Seaborn: The Ultimate Guide
 <img src="https://seaborn.pydata.org/_static/logo-large.png" alt="Custom Icon" width="500" height="250">
 
