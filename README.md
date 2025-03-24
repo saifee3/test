@@ -1,104 +1,78 @@
-git repo name: FlaskSignupLogin
+repo name: social medi app api flask
 
-# 🚀 Flask Signup & Login System
+# 🛋️ Social Media Application
 
-This project implements a secure and user-friendly Signup and Login System using Flask, SQLAlchemy, and modern web design principles. It includes backend logic for user authentication, database management, and frontend pages with responsive design and interactive features.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-2.0.0-green?logo=flask)
+![License](https://img.shields.io/badge/License-MIT-red)
 
-## 🌟 Features
-
-- 📝 User registration with username, email, and password
-- 🔑 Secure user login with email and password authentication
-- 🔄 Password strength validation
-- 📱 Fully responsive design for all devices
-- 📄 SQLite database integration
-- 🛡️ CORS support for API security
-- 📦 Modular code structure for easy maintenance
-
-## 🛠 Technologies Used
-
-- **Backend**: Python, Flask, Flask-SQLAlchemy, Flask-CORS
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Database**: SQLite
-- **Version Control**: Git, GitHub
+A comprehensive social media platform built with Flask, featuring user authentication, post creation, commenting, and liking functionality. Designed for scalability and maintainability.
 
 ---
 
-## 🧩 Backend Implementation
+## Table of Contents
+- [Project Overview](#project-overview) 🌟
+- [Features](#features) ✨
+- [Technologies](#technologies) ⚙️
+- [Installation](#installation) 💻
+- [Usage](#usage) 🚀
+- [API Documentation](#api-documentation) 📘
+- [Folder Structure](#folder-structure) 📂
+- [Contributing](#contributing) 🤝
+- [License](#license) 📜
+- [Credits](#credits) 🙏
 
-### Database Model (`models.py`)
-```python
-from flask_sqlalchemy import SQLAlchemy
+## Project Overview 🌟
 
-db = SQLAlchemy()
+This social media application is designed to provide a robust platform for user interaction and content sharing. It implements modern web development practices and follows RESTful principles for its API design. The application is built with security in mind, using JWT authentication and password hashing to protect user data.
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
-```
+## Features ✨
 
-### Routes (`routes.py`)
-- **Signup**: Handles user registration.
-  ```python
-  @app.route('/signup', methods=['POST'])
-  def signup():
-      data = request.get_json()
-      if not all([data.get('username'), data.get('email'), data.get('password')]):
-          return jsonify({"error": "All fields are required"}), 400
-      if User.query.filter((User.username == data['username']) | (User.email == data['email'])).first():
-          return jsonify({"error": "Username or email already exists"}), 400
-      user = User(username=data['username'], email=data['email'], password=data['password'])
-      db.session.add(user)
-      db.session.commit()
-      return jsonify({"message": "User registered successfully"}), 201
-  ```
+- **User Management**:
+  - 📝 Registration with email verification
+  - 🔑 Login with JWT authentication
+  - 📋 Profile management (update personal information)
+  - 🔄 Password reset functionality
+  - ⚡ Soft delete for user accounts
 
-- **Login**: Handles user authentication.
-  ```python
-  @app.route('/login', methods=['POST'])
-  def login():
-      data = request.get_json()
-      if not all([data.get('email'), data.get('password')]):
-          return jsonify({"error": "Email and password are required"}), 400
-      user = User.query.filter_by(email=data['email'], password=data['password']).first()
-      if not user:
-          return jsonify({"error": "Invalid email or password"}), 400
-      return jsonify({"message": "Login successful", "username": user.username}), 200
-  ```
+- **Post Management**:
+  - 📝 Create, read, update, and delete posts
+  - 🖼️ Add media (images, videos) to posts
+  - 🎨 Rich text formatting support
+  - 📅 Post scheduling
+  - 📥 Draft saving
 
----
+- **Commenting System**:
+  - 📌 Add, edit, and delete comments
+  - 🔄 Nested comments
+  - 🧵 Comment threading
+  - 🔔 Real-time comment notifications
 
-## 🎨 Frontend Design
+- **Like System**:
+  - ❤️ Like/unlike posts and comments
+  - 📊 View who liked a post
+  - 📈 Like analytics
 
-### Welcome Page (`index.html`)
-- **Purpose**: Landing page with options to sign up or log in.
-- **Design**:
-  - Gradient background with blur effect.
-  - Centered container with buttons for navigation.
-  - Smooth hover animations.
+- **Security**:
+  - 🔐 JWT-based authentication
+  - 🗝️ Password hashing with Bcrypt
+  - ⏱️ Rate limiting
+  - 🛡️ CSRF protection
 
-### Login Page (`login.html`)
-- **Purpose**: User authentication.
-- **Design**:
-  - Input fields for email and password.
-  - Google Sign-In button (placeholder).
-  - Link to the signup page.
-  - Real-time form validation.
+## Technologies ⚙️
 
-### Signup Page (`signup.html`)
-- **Purpose**: User registration.
-- **Design**:
-  - Input fields for username, email, and password.
-  - Password strength validation.
-  - Google Sign-In button (placeholder).
-  - Link to the login page.
+- **Backend**: 🐍 Python 3.8+, 🌐 Flask 2.0.0
+- **Database**: 🗄️ SQLite (easily switchable to PostgreSQL or MySQL)
+- **Authentication**: 🔑 Flask-JWT-Extended
+- **Password Hashing**: 🗑️ Flask-Bcrypt
+- **Environment Management**: 🌲 python-dotenv
+- **CORS Support**: 🌐 Flask-CORS
+- **API Documentation**: 📘 Postman
 
----
-## 📥 Installation Guide
+## Installation 💻
 
 ### Prerequisites
-- Python 3.6+
+- Python 3.8 or higher
 - Git
 - Basic command-line knowledge
 
@@ -106,8 +80,8 @@ class User(db.Model):
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/signup-login-project.git
-   cd signup-login-project
+   git clone https://github.com/yourusername/social-media-app.git
+   cd social-media-app
    ```
 
 2. **Create a Virtual Environment**
@@ -126,78 +100,144 @@ class User(db.Model):
    flask init-db
    ```
 
-5. **Run the Application**
+5. **Configure Environment Variables**
+   Create a `.env` file in the project root:
+   ```
+   SECRET_KEY=your-secret-key
+   JWT_SECRET_KEY=your-jwt-secret-key
+   SQLALCHEMY_DATABASE_URI=sqlite:///My_Database_user_22.db
+   ```
+
+6. **Run the Application**
    ```bash
    python app.py
    ```
 
-6. **Access the Application**
-   Open your browser and visit `http://127.0.0.1:5000/`
-
-## 📖 Usage Instructions
+## Usage 🚀
 
 ### User Registration
-1. Click the "Sign Up" button on the home page
-2. Fill in the required fields:
-   - Username (must contain at least one number)
-   - Email
-   - Password (must be at least 8 characters and contain uppercase, lowercase, number, and special character)
-3. Click "Sign Up" to create your account
+```bash
+POST /user/signup
+```
+```json
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "date_of_birth": "1990-01-01",
+  "gender": "Male",
+  "email": "john.doe@example.com",
+  "password": "securepassword123"
+}
+```
 
 ### User Login
-1. Click the "Log In" button on the home page
-2. Enter your registered email and password
-3. Click "Log In" to access your account
+```bash
+POST /user/login
+```
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "securepassword123"
+}
+```
 
-## 📁 Folder Structure
+### Creating a Post
+After login, use the received JWT token to create a post:
+```bash
+POST /post/
+```
+```json
+{
+  "title": "My First Post",
+  "content": "This is the content of my first post.",
+  "media_url": "https://example.com/image.jpg"
+}
+```
+
+### Updating a Post
+```bash
+PUT /post/<post_id>
+```
+```json
+{
+  "title": "Updated Title",
+  "content": "Updated content of my post."
+}
+```
+
+### Deleting a Post
+```bash
+DELETE /post/<post_id>
+```
+
+## API Documentation 📘
+
+### User Endpoints
+- `POST /user/signup` - User registration
+- `POST /user/login` - User login
+- `GET /user/profile` - Get current user's profile (JWT required)
+- `PUT /user/profile` - Update user profile (JWT required)
+- `PATCH /user/profile` - Partially update user profile (JWT required)
+- `DELETE /user/profile` - Delete user account (JWT required)
+
+### Post Endpoints
+- `POST /post/` - Create a new post (JWT required)
+- `GET /post/` - Get all posts
+- `GET /post/my-posts` - Get current user's posts (JWT required)
+- `GET /post/<post_id>` - Get a specific post
+- `PUT /post/<post_id>` - Update a post (JWT required)
+- `PATCH /post/<post_id>` - Partially update a post (JWT required)
+- `DELETE /post/<post_id>` - Delete a post (JWT required)
+
+### Comment Endpoints
+- `POST /comment/post/<post_id>` - Add comment to a post (JWT required)
+- `GET /comment/post/<post_id>` - Get comments for a post
+- `PUT /comment/update/<comment_id>` - Update a comment (JWT required)
+- `DELETE /comment/<comment_id>` - Delete a comment (JWT required)
+
+### Like Endpoints
+- `POST /like/post/<post_id>` - Like a post (JWT required)
+- `GET /like/post/<post_id>` - Get likes for a post
+- `DELETE /like/post/<post_id>` - Unlike a post (JWT required)
+
+## Folder Structure 📂
 
 ```
-signup-login-project/
+social_media_app/
 │
 ├── app.py              # Main application file
 ├── models.py           # Database models
-├── routes.py           # Route definitions
-│
-├── templates/          # HTML templates
-│   ├── index.html      # Home page
-│   ├── login.html      # Login page
-│   └── signup.html     # Signup page
-│
-├── static/             # Static files
-│   ├── css/            # CSS styles
-│   ├── js/             # JavaScript files
-│   └── images/         # Image assets
-│
 ├── requirements.txt    # Project dependencies
 ├── README.md           # This documentation file
-└── LICENSE             # Project license
+├── LICENSE             # Project license
+├── App_EntityRelational_Diagram.png             # App ERD
+│
+└── routes/             # Route definitions
+    ├── __init__.py
+    ├── user_routes.py  # User authentication routes
+    ├── post_routes.py  # Post creation and management routes
+    ├── comment_routes.py # Comment routes
+    └── like_routes.py  # Like routes
+
 ```
 
-## 📲 API Endpoints
+## Contributing 🤝
 
-| Method | Endpoint         | Description               |
-|--------|------------------|---------------------------|
-| GET    | `/`              | Home page                 |
-| POST   | `/signup`        | User registration         |
-| POST   | `/login`         | User authentication       |
+Contributions are welcome! Please follow these guidelines:
 
-## 🛠️ Future Enhancements
-1. Google OAuth Integration: Add Google Sign-In functionality.
-2. Password Hashing: Implement bcrypt for secure password storage.
-3. Email Verification: Send confirmation emails for new signups.
-4. Profile Management: Allow users to update their profiles.
-5. Forgot Password: Add a password reset feature.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
 
-## 📜 License
+## License 📜
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Credits
+## Credits 🙏
 
-- Flask - The web framework powering this authentication system
-- Python - The programming language used for backend development
-- SQLite - Database system for storing user information
-
-
-
+- **Python Development Community**
+- **Flask Development Team** - [@pallets](https://github.com/pallets/flask)
+- **SQLite Development Team** - [sqlite.org](https://www.sqlite.org)
 
