@@ -1,3 +1,5 @@
+git repo name: FlaskSignupLogin
+
 # 🚀 Flask Signup & Login System
 
 This project implements a secure and user-friendly Signup and Login System using Flask, SQLAlchemy, and modern web design principles. It includes backend logic for user authentication, database management, and frontend pages with responsive design and interactive features.
