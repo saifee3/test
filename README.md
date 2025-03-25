@@ -1,87 +1,88 @@
-repo name: social medi app api flask
+to-do-list-app-FastAPI
+# TodoList App using FastAPI
 
-# 🛋️ Social Media Application
+![TodoSphere Banner](https://via.placeholder.com/1200x400.png?text=TodoSphere+-+Smart+Task+Management)
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
-![Flask](https://img.shields.io/badge/Flask-2.0.0-green?logo=flask)
-![License](https://img.shields.io/badge/License-MIT-red)
+![GitHub Language Count](https://img.shields.io/github/languages/count/yourusername/todosphere?style=flat-square&color=green)
+![GitHub License](https://img.shields.io/github/license/yourusername/todosphere?style=flat-square&color=orange)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue?style=flat-square)
+![FastAPI Version](https://img.shields.io/badge/fastapi-0.100.0%2B-blue?style=flat-square)
+![Build Status](https://img.shields.io/badge/build-passing-success?style=flat-square)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
 
-A comprehensive social media platform built with Flask, featuring user authentication, post creation, commenting, and liking functionality. Designed for scalability and maintainability.
+## Project Overview
 
----
+Welcome to **ToDoKit**, a modern, intuitive task management application designed to help you organize your life and achieve more. With its clean, responsive interface and robust backend, app provides a seamless experience for managing your daily tasks across all your devices. App combines a powerful FastAPI backend to deliver a fast, reliable, and user-friendly experience.
 
-## Table of Contents
-- [Project Overview](#project-overview) 🌟
-- [Features](#features) ✨
-- [Technologies](#technologies) ⚙️
-- [Installation](#installation) 💻
-- [Usage](#usage) 🚀
-- [API Documentation](#api-documentation) 📘
-- [Folder Structure](#folder-structure) 📂
-- [Contributing](#contributing) 🤝
-- [License](#license) 📜
-- [Credits](#credits) 🙏
+- **User Authentication**: Secure sign-up and login system with JWT authentication
+- **Task Management**: Create, read, update, and delete tasks with rich text support
+- **Responsive Design**: Works seamlessly across desktops, tablets, and mobile devices
+- **Real-time Updates**: Instant feedback on task operations
+- **Data Persistence**: All tasks are securely stored in a PostgreSQL Neon database
 
-## Project Overview 🌟
+## Technology Stack
 
-This social media application is designed to provide a robust platform for user interaction and content sharing. It implements modern web development practices and follows RESTful principles for its API design. The application is built with security in mind, using JWT authentication and password hashing to protect user data.
+### Backend
 
-## Features ✨
+- **Framework**: FastAPI - A modern, fast (high-performance) web framework for building APIs with Python
+- **Database**: PostgreSQL Neon - A managed, serverless PostgreSQL database with automatic scaling
+- **ORM**: SQLAlchemy - The SQL toolkit and ORM for Python
+- **Authentication**: JWT (JSON Web Tokens) - Secure stateless authentication
+- **Password Hashing**: Passlib with bcrypt - Secure password storage
+- **API Documentation**: Automatic Swagger UI and Redoc documentation
+- **CORS**: Cross-Origin Resource Sharing middleware for frontend communication
+- **Error Handling**: Comprehensive error handling and validation
 
-- **User Management**:
-  - 📝 Registration with email verification
-  - 🔑 Login with JWT authentication
-  - 📋 Profile management (update personal information)
-  - 🔄 Password reset functionality
-  - ⚡ Soft delete for user accounts
+### Frontend
 
-- **Post Management**:
-  - 📝 Create, read, update, and delete posts
-  - 🖼️ Add media (images, videos) to posts
-  - 🎨 Rich text formatting support
-  - 📅 Post scheduling
-  - 📥 Draft saving
+- **HTML5**: Semantic markup for structured content
+- **CSS3**: Custom styling with CSS for responsive design
+- **JavaScript**: JS with Fetch API for backend communication
+- **Responsive Design**: Mobile-first approach with media queries
 
-- **Commenting System**:
-  - 📌 Add, edit, and delete comments
-  - 🔄 Nested comments
-  - 🧵 Comment threading
-  - 🔔 Real-time comment notifications
+## Project Structure
 
-- **Like System**:
-  - ❤️ Like/unlike posts and comments
-  - 📊 View who liked a post
-  - 📈 Like analytics
+```
+todo-sphere/
+├── backend/                # Backend directory
+│   ├── main.py             # Main FastAPI application file
+│   ├── database.py         # Database configuration
+│   ├── models.py           # Database models
+│   ├── routes/             # API routes
+│   │   ├── __init__.py
+│   │   ├── user.py        # User authentication routes
+│   │   └── task.py        # Task management routes
+│   └── requirements.txt   # Backend dependencies
+│
+├── frontend/               # Frontend directory
+│   ├── css/               # CSS stylesheets
+│   ├── images/            # Image assets
+│   ├── js/                # JavaScript files
+│   ├── home.html          # Home page
+│   ├── index.html         # Landing page
+│   ├── login.html         # Login page
+│   └── signup.html        # Signup page
+│
+├── .gitignore              # Files to ignore in version control
+├── LICENSE                 # Project license
+└── README.md               # This documentation file
+```
 
-- **Security**:
-  - 🔐 JWT-based authentication
-  - 🗝️ Password hashing with Bcrypt
-  - ⏱️ Rate limiting
-  - 🛡️ CSRF protection
-
-## Technologies ⚙️
-
-- **Backend**: 🐍 Python 3.8+, 🌐 Flask 2.0.0
-- **Database**: 🗄️ SQLite (easily switchable to PostgreSQL or MySQL)
-- **Authentication**: 🔑 Flask-JWT-Extended
-- **Password Hashing**: 🗑️ Flask-Bcrypt
-- **Environment Management**: 🌲 python-dotenv
-- **CORS Support**: 🌐 Flask-CORS
-- **API Documentation**: 📘 Postman
-
-## Installation 💻
+## Getting Started
 
 ### Prerequisites
+
 - Python 3.8 or higher
 - Git
-- Basic command-line knowledge
+- PostgreSQL Neon account
+- Node.js (for CSS preprocessing)
 
-### Step-by-Step Installation
+### Installation
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/social-media-app.git
-   cd social-media-app
+   git clone https://github.com/yourusername/todosphere.git
+   cd todosphere
    ```
 
 2. **Create a Virtual Environment**
@@ -90,35 +91,104 @@ This social media application is designed to provide a robust platform for user 
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. **Install Dependencies**
+3. **Install Backend Dependencies**
    ```bash
+   cd backend
    pip install -r requirements.txt
    ```
 
-4. **Initialize the Database**
+4. **Run Development Server**
    ```bash
-   flask init-db
+   # In one terminal, run the backend
+   uvicorn backend.main:app --reload
+   
+   # In another terminal, serve the frontend
+   cd frontend
+   python -m http.server 8000
    ```
 
-5. **Configure Environment Variables**
-   Create a `.env` file in the project root:
-   ```
-   SECRET_KEY=your-secret-key
-   JWT_SECRET_KEY=your-jwt-secret-key
-   SQLALCHEMY_DATABASE_URI=sqlite:///My_Database_user_22.db
-   ```
 
-6. **Run the Application**
-   ```bash
-   python app.py
-   ```
+## NeonDB Setup
 
-## Usage 🚀
+TodoList App uses NeonDB, a managed PostgreSQL database service. The database connection string is configured in the `backend/database.py` file:
 
-### User Registration
-```bash
-POST /user/signup
+```python
+SQLALCHEMY_DATABASE_URL = (
+    "postgresql://TODOdb_owner:npg_0lrtXiz3kBOL@ep-shiny-bird-a5kiwx6l-pooler.us-east-2.aws.neon.tech/TODOdb?sslmode=require"
+)
 ```
+
+### Steps to Replicate this Setup
+
+1. **Create a Neon Account**
+   - Go to [NeonDB website](https://neon.tech/) and sign up for an account
+   - Complete the registration process
+
+2. **Create a New Project**
+   - Log in to your Neon dashboard
+   - Click on "New Project"
+   - Give your project a name (e.g., "TodoList")
+   - Select your preferred region
+   - Click "Create Project"
+
+3. **Create a New Branch**
+   - In your project dashboard, click on "New Branch"
+   - Keep the default branch name or choose your own
+   - Click "Create Branch"
+
+4. **Connect to Your Database**
+   - After creating the branch, you'll see connection information
+   - Copy the connection string (it will look something like this):
+     ```
+     postgresql://TODOdb_owner:npg_0lrtXiz3kBOL@ep-shiny-bird-a5kiwx6l-pooler.us-east-2.aws.neon.tech/TODOdb?sslmode=require
+     ```
+   - Update the `SQLALCHEMY_DATABASE_URL` in your `backend/database.py` file with this connection string
+
+5. **Database Credentials**
+   - The connection string includes your database username and password
+   - Store these securely and do not commit them to version control
+   - Consider using environment variables or a secrets manager for production deployments
+  
+     
+## API Documentation
+
+## Base URL
+
+The API is available at `http://localhost:8000/api` during local development. For production deployments, replace `localhost:8000` with your server domain or IP address.
+
+## Authentication
+
+App uses JWT (JSON Web Tokens) for authentication. You need to obtain a token by logging in and include it in the `Authorization` header of subsequent requests.
+
+### Login
+
+```http
+POST /login
+```
+
+**Request Body:**
+```json
+{
+  "email": "user@example.com",
+  "password": "your-password"
+}
+```
+
+**Response:**
+```json
+{
+  "access_token": "your-jwt-token",
+  "token_type": "bearer"
+}
+```
+
+### Signup
+
+```http
+POST /signup
+```
+
+**Request Body:**
 ```json
 {
   "first_name": "John",
@@ -126,118 +196,175 @@ POST /user/signup
   "date_of_birth": "1990-01-01",
   "gender": "Male",
   "email": "john.doe@example.com",
-  "password": "securepassword123"
+  "password": "secure-password"
 }
 ```
 
-### User Login
-```bash
-POST /user/login
-```
+**Response:**
 ```json
 {
-  "email": "john.doe@example.com",
-  "password": "securepassword123"
+  "message": "User created",
+  "user_id": 1
 }
 ```
 
-### Creating a Post
-After login, use the received JWT token to create a post:
-```bash
-POST /post/
+## Task Management
+
+### Create Task
+
+```http
+POST /tasks
 ```
+
+**Headers:**
+```
+Authorization: Bearer your-jwt-token
+```
+
+**Request Body:**
 ```json
 {
-  "title": "My First Post",
-  "content": "This is the content of my first post.",
-  "media_url": "https://example.com/image.jpg"
+  "title": "Buy groceries",
+  "description": "Milk, eggs, bread",
+  "completed": false
 }
 ```
 
-### Updating a Post
-```bash
-PUT /post/<post_id>
-```
+**Response:**
 ```json
 {
-  "title": "Updated Title",
-  "content": "Updated content of my post."
+  "message": "Task created",
+  "task": {
+    "id": 1,
+    "title": "Buy groceries",
+    "description": "Milk, eggs, bread",
+    "completed": false
+  }
 }
 ```
 
-### Deleting a Post
-```bash
-DELETE /post/<post_id>
+### Get All Tasks
+
+```http
+GET /tasks
 ```
 
-## API Documentation 📘
-
-### User Endpoints
-- `POST /user/signup` - User registration
-- `POST /user/login` - User login
-- `GET /user/profile` - Get current user's profile (JWT required)
-- `PUT /user/profile` - Update user profile (JWT required)
-- `PATCH /user/profile` - Partially update user profile (JWT required)
-- `DELETE /user/profile` - Delete user account (JWT required)
-
-### Post Endpoints
-- `POST /post/` - Create a new post (JWT required)
-- `GET /post/` - Get all posts
-- `GET /post/my-posts` - Get current user's posts (JWT required)
-- `GET /post/<post_id>` - Get a specific post
-- `PUT /post/<post_id>` - Update a post (JWT required)
-- `PATCH /post/<post_id>` - Partially update a post (JWT required)
-- `DELETE /post/<post_id>` - Delete a post (JWT required)
-
-### Comment Endpoints
-- `POST /comment/post/<post_id>` - Add comment to a post (JWT required)
-- `GET /comment/post/<post_id>` - Get comments for a post
-- `PUT /comment/update/<comment_id>` - Update a comment (JWT required)
-- `DELETE /comment/<comment_id>` - Delete a comment (JWT required)
-
-### Like Endpoints
-- `POST /like/post/<post_id>` - Like a post (JWT required)
-- `GET /like/post/<post_id>` - Get likes for a post
-- `DELETE /like/post/<post_id>` - Unlike a post (JWT required)
-
-## Folder Structure 📂
-
+**Headers:**
 ```
-social_media_app/
-│
-├── app.py              # Main application file
-├── models.py           # Database models
-├── requirements.txt    # Project dependencies
-├── README.md           # This documentation file
-├── LICENSE             # Project license
-├── App_EntityRelational_Diagram.png             # App ERD
-│
-└── routes/             # Route definitions
-    ├── __init__.py
-    ├── user_routes.py  # User authentication routes
-    ├── post_routes.py  # Post creation and management routes
-    ├── comment_routes.py # Comment routes
-    └── like_routes.py  # Like routes
-
+Authorization: Bearer your-jwt-token
 ```
 
-## Contributing 🤝
+**Response:**
+```json
+[
+  {
+    "id": 1,
+    "title": "Buy groceries",
+    "description": "Milk, eggs, bread",
+    "completed": false,
+    "created_at": "2023-07-20T12:00:00",
+    "updated_at": "2023-07-20T12:00:00"
+  }
+]
+```
 
-Contributions are welcome! Please follow these guidelines:
+### Update Task
+
+```http
+PATCH /tasks/{task_id}
+```
+
+**Headers:**
+```
+Authorization: Bearer your-jwt-token
+```
+
+**Request Body:**
+```json
+{
+  "title": "Updated title",
+  "description": "Updated description",
+  "completed": true
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Task partially updated",
+  "task": {
+    "id": 1,
+    "title": "Updated title",
+    "description": "Updated description",
+    "completed": true
+  }
+}
+```
+
+### Delete Task
+
+```http
+DELETE /tasks/{task_id}
+```
+
+**Headers:**
+```
+Authorization: Bearer your-jwt-token
+```
+
+**Response:**
+```json
+{
+  "message": "Task deleted"
+}
+```
+
+## Error Handling
+
+The API returns standard HTTP status codes with appropriate error messages.
+
+### Common Error Responses
+
+| Status Code | Description                     | Example Response                          |
+|-------------|---------------------------------|-------------------------------------------|
+| 400         | Bad Request                     | {"detail": "Invalid request data"}        |
+| 401         | Unauthorized                    | {"detail": "Invalid credentials"}         |
+| 403         | Forbidden                       | {"detail": "Permission denied"}           |
+| 404         | Not Found                       | {"detail": "Task not found"}              |
+| 500         | Internal Server Error           | {"detail": "An unexpected error occurred"}|
+
+## Security
+
+- All API endpoints require authentication except for `/login` and `/signup`
+- JWT tokens should be stored securely on the client side
+- Passwords are hashed using bcrypt before storage
+- The API uses HTTPS in production environments
+- Rate limiting is implemented to prevent brute force attacks
+
+
+## Contributing
+
+We welcome contributions! Please follow these steps:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License 📜
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Credits 🙏
+## Credits
 
-- **Python Development Community**
-- **Flask Development Team** - [@pallets](https://github.com/pallets/flask)
-- **SQLite Development Team** - [sqlite.org](https://www.sqlite.org)
+- **[FastAPI](https://fastapi.tiangolo.com/)** - The high-performance web framework used to build this API.
+- **[SQLAlchemy](https://www.sqlalchemy.org/)** - The SQL toolkit and ORM used for database interactions.
+- **[PostgreSQL Neon](https://neon.tech/)** - The managed, serverless PostgreSQL database.
+- **[Banner Image](https://realpython.com/fastapi-python-web-apis/)** - The banner image is form Real Python.
+
+
+
+
+
 
